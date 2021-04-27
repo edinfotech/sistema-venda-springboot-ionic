@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edivanio.springboot.Ionic.domain.Produto;
-import com.edivanio.springboot.Ionic.service.ProdutoService;
+import com.edivanio.springboot.Ionic.domain.Pedido;
+import com.edivanio.springboot.Ionic.service.PedidoService;
 
 @RestController
-@RequestMapping(value="/produtos")
-public class ProdutoResources {
+@RequestMapping(value="/pedidos")
+public class PedidoResources {
 	
 	@Autowired
-	private ProdutoService service;
+	private PedidoService service;
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> find(@PathVariable Integer id){
-		Produto obj  = service.buscar(id);
+		Pedido obj  = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
